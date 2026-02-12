@@ -1,0 +1,13 @@
+# Code Owners - Auto-assigns reviewers
+
+# Default reviewers
+* @cleven12 @	@rafaelmurianga
+
+# Public pages
+/public/** @rafaelmurianga
+
+# Admin panel
+/admin/** @president-username
+
+# Config files
+/.github/** @rafaelmurianga
