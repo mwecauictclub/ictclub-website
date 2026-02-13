@@ -37,7 +37,7 @@
                             Continue
                         </button>
 
-                        <a href="{{ url_for('api.index') }}" class="btn btn-secondary">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
                             Back to Home
                         </a>
                     </div>
@@ -83,7 +83,7 @@
                 <p>Your attendance for <span id="successDate"></span> has been recorded.</p>
                 <p><strong>Focus Area:</strong> <span id="successDepartment"></span></p>
 
-                <button class="btn btn-primary" onclick="window.location.href='{{ url_for('api.index') }}'">
+                <button class="btn btn-primary" onclick="window.location.href='{{ url_for('index') }}'">
                     Back to Home
                 </button>
             </div>
