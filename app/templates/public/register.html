@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MWECAU ICT Club</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Member Registration</h1>
+            <p class="subtitle">MWECAU ICT Club</p>
+        </header>
+
+        <main>
+            <form id="registrationForm" class="form">
+                <div class="form-group">
+                    <label for="regNumber">Registration Number *</label>
+                    <input type="text" id="regNumber" name="reg_number" 
+                           placeholder="e.g., T/DEG/2020/001" required>
+                    <small>Format: T/(DEG|DIP)/(Year)/(Number)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="full_name" 
+                           placeholder="e.g., Baraka Mollel" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" 
+                           placeholder="e.g., baraka@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" 
+                           placeholder="e.g., +255XX....." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="yearOfStudy">Year of Study *</label>
+                    <select id="yearOfStudy" name="year_of_study" required>
+                        <option value="">Select Year</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course *</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select Course</option>
+                        <option value="ICT">ICT</option>
+                        <option value="CS">Computer Science</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Focus Areas of Interest * (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="Cybersecurity">
+                            <i class="fas fa-shield-alt"></i> <strong>Cybersecurity</strong> - Ethical hacking, digital forensics, and secure computing
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="Programming">
+                            <i class="fas fa-code"></i> <strong>Programming</strong> - Software development in Python, JavaScript, PHP, etc.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="Networking">
+                            <i class="fas fa-network-wired"></i> <strong>Networking</strong> - Design and implementation of robust networks
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="Computer Maintenance">
+                            <i class="fas fa-tools"></i> <strong>Computer Maintenance</strong> - Hardware/software troubleshooting and repair
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="Graphic Design">
+                            <i class="fas fa-palette"></i> <strong>Graphic Design</strong> - Visual design using Adobe tools & Canva
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="departments" value="AI & Machine Learning">
+                            <i class="fas fa-brain"></i> <strong>AI & Machine Learning</strong> - AI-driven automation and prototyping
+                        </label>
+                    </div>
+                </div>
+
+                <div id="message" class="message"></div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        Register
+                    </button>
+
+                    <a href="{{ url_for('api.index') }}" class="btn btn-secondary">
+                        Back to Home
+                    </a>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 MWECAU ICT Club</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', handleRegistration);
+    </script>
+</body>
+</html>

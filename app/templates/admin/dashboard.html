@@ -1,0 +1,100 @@
+{% extends "admin/base.html" %}
+
+{% block extra_css %}
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .stat-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stat-card h3 { font-size: 2rem; color: #667eea; margin: 0.5rem 0; }
+    .stat-card p { color: #666; margin: 0; }
+    .section { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .section h2 { margin-bottom: 1rem; color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background: #f8f9fa; font-weight: 600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <p>Total Members</p>
+        <h3>{{ stats.total_members }}</h3>
+    </div>
+    <div class="stat-card">
+        <p>Active Members</p>
+        <h3>{{ stats.active_members }}</h3>
+    </div>
+    <div class="stat-card">
+        <p>Total Events</p>
+        <h3>{{ stats.total_events }}</h3>
+    </div>
+    <div class="stat-card">
+        <p>Upcoming Events</p>
+        <h3>{{ stats.upcoming_events }}</h3>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Recent Members</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Reg Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Registration Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in recent_members %}
+            <tr>
+                <td>{{ member.reg_number }}</td>
+                <td>{{ member.full_name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.registration_date.strftime('%Y-%m-%d') if member.registration_date else 'N/A' }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4" style="text-align: center;">No members yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Upcoming Events</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in upcoming_events %}
+            <tr>
+                <td>{{ event.title }}</td>
+                <td>{{ event.event_date }}</td>
+                <td>{{ event.location or 'TBA' }}</td>
+                <td>{{ event.event_type }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4" style="text-align: center;">No upcoming events</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

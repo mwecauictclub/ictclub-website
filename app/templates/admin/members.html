@@ -1,0 +1,87 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<h1>Manage Members</h1>
+
+<button onclick="document.getElementById('addModal').style.display='block'" style="padding: 0.75rem 1.5rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 1rem;">+ Add Member</button>
+
+<div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background: #f8f9fa;">
+                <th style="padding: 0.75rem; text-align: left;">Reg Number</th>
+                <th style="padding: 0.75rem; text-align: left;">Name</th>
+                <th style="padding: 0.75rem; text-align: left;">Email</th>
+                <th style="padding: 0.75rem; text-align: left;">Phone</th>
+                <th style="padding: 0.75rem; text-align: left;">Year</th>
+                <th style="padding: 0.75rem; text-align: left;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td style="padding: 0.75rem;">{{ member.reg_number }}</td>
+                <td style="padding: 0.75rem;">{{ member.full_name }}</td>
+                <td style="padding: 0.75rem;">{{ member.email }}</td>
+                <td style="padding: 0.75rem;">{{ member.phone }}</td>
+                <td style="padding: 0.75rem;">{{ member.year_of_study }}</td>
+                <td style="padding: 0.75rem;">
+                    <span style="padding: 0.25rem 0.75rem; border-radius: 20px; {% if member.active %}background: #d4edda; color: #155724;{% else %}background: #f8d7da; color: #721c24;{% endif %}">
+                        {{ 'Active' if member.active else 'Inactive' }}
+                    </span>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="6" style="text-align: center; padding: 2rem;">No members yet</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div id="addModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+    <div style="background: white; max-width: 600px; margin: 50px auto; padding: 2rem; border-radius: 10px;">
+        <h2>Add New Member</h2>
+        <form method="POST" action="{{ url_for('admin.add_member') }}">
+            <div style="margin-bottom: 1rem;">
+                <label>Registration Number *</label>
+                <input type="text" name="reg_number" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Full Name *</label>
+                <input type="text" name="full_name" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Email *</label>
+                <input type="email" name="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Phone *</label>
+                <input type="text" name="phone" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Gender *</label>
+                <select name="gender" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Year of Study *</label>
+                <input type="number" name="year_of_study" min="1" max="5" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Course *</label>
+                <input type="text" name="course" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Departments *</label>
+                <input type="text" name="departments" placeholder="e.g., Web Development, AI" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button type="submit" style="flex: 1; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Add Member</button>
+                <button type="button" onclick="document.getElementById('addModal').style.display='none'" style="flex: 1; padding: 0.75rem; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

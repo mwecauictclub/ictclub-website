@@ -2,82 +2,67 @@
 
 import sys
 import os
-
-# Add current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
-from config.settings import SECRET_KEY, DEBUG, MYSQL_CONFIG
-from api import api_bp
-from admin import admin_bp
+from models.database import db
+from config.settings import Config
 
 # Create Flask app
 app = Flask(__name__)
+app.config.from_object(Config)
 
-# Configuration
-app.config['SECRET_KEY'] = SECRET_KEY
-app.config['DEBUG'] = DEBUG
-app.config['JSON_SORT_KEYS'] = False
-
-# MySQL Configuration
-app.config['MYSQL_HOST'] = MYSQL_CONFIG['host']
-app.config['MYSQL_USER'] = MYSQL_CONFIG['user']
-app.config['MYSQL_PASSWORD'] = MYSQL_CONFIG['password']
-app.config['MYSQL_DB'] = MYSQL_CONFIG['database']
-
-# Enable CORS
+# Initialize extensions
+db.init_app(app)
 CORS(app)
 
+# Import blueprints after app creation to avoid circular imports
+from admin import admin_bp
+from api import api_bp
+
 # Register blueprints
-app.register_blueprint(api_bp, url_prefix='/api')
 app.register_blueprint(admin_bp, url_prefix='/admin')
+app.register_blueprint(api_bp, url_prefix='/api')
 
 
-# Public routes
+# Public routes - redirect to admin
 @app.route('/')
 def index():
     """Homepage."""
     return render_template('public/index.html')
 
 
-@app.route('/about')
-def about():
-    """About page."""
-    return render_template('public/about.html')
+@app.route('/register')
+def register():
+    """Registration page."""
+    return render_template('public/register.html')
 
 
-@app.route('/events')
-def events():
-    """Events page."""
-    return render_template('public/events.html')
-
-
-@app.route('/members')
-def members():
-    """Members page."""
-    return render_template('public/members.html')
-
-
-@app.route('/contact')
-def contact():
-    """Contact page."""
-    return render_template('public/contact.html')
+@app.route('/attendance')
+def attendance():
+    """Attendance page."""
+    return render_template('public/attendance.html')
 
 
 # Error handlers
 @app.errorhandler(404)
 def not_found(error):
     """Handle 404 errors."""
-    return render_template('public/404.html'), 404
+    return jsonify({'error': 'Not found', 'message': str(error)}), 404
 
 
 @app.errorhandler(500)
 def server_error(error):
     """Handle 500 errors."""
-    return render_template('public/500.html'), 500
+    return jsonify({'error': 'Server error', 'message': str(error)}), 500
+
+
+# Database initialization
+with app.app_context():
+    db.create_all()
+    print("Database tables created successfully!")
 
 
 if __name__ == '__main__':
-    # Run the application
-    app.run(host='0.0.0.0', port=5000, debug=DEBUG)
+    app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])

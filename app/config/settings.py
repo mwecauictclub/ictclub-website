@@ -1,28 +1,28 @@
-"""Configuration settings for the application."""
+"""Configuration settings."""
 
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
-# Flask Configuration
-SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
-
-# MySQL Database Configuration
-MYSQL_CONFIG = {
-    'host': os.getenv('MYSQL_HOST', 'localhost'),
-    'user': os.getenv('MYSQL_USER', 'root'),
-    'password': os.getenv('MYSQL_PASSWORD', ''),
-    'database': os.getenv('MYSQL_DATABASE', 'ictclub_db'),
-    'port': int(os.getenv('MYSQL_PORT', 3306))
-}
-
-# Admin Configuration
-ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
-ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'admin123')
-
-# Application Settings
-APP_NAME = 'MWECAU ICT Club'
-APP_VERSION = '1.0.0'
+class Config:
+    """Base configuration."""
+    SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
+    DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
+    
+    # SQLAlchemy Configuration
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        'DATABASE_URL',
+        f"mysql+pymysql://ictclub_db:ictclub_db@localhost:3306/ictclub_db"
+        # f"mysql+pymysql://{os.getenv('MYSQL_USER', 'root')}:{os.getenv('MYSQL_PASSWORD', '')}@{os.getenv('MYSQL_HOST', 'localhost')}:{os.getenv('MYSQL_PORT', 3306)}/{os.getenv('MYSQL_DATABASE', 'ictclub_db')}"
+    )
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_ECHO = DEBUG
+    
+    # Application
+    APP_NAME = 'MWECAU ICT Club'
+    APP_VERSION = '1.0.0'
+    
+    # Upload settings
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB
+    UPLOAD_FOLDER = 'static/uploads'
