@@ -1,0 +1,39 @@
+/* Custom CSS for MWECAU ICT Club Website */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f7ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a3c8f;
+    border-radius: 5px;
+}
+
+.splide__pagination__page {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.splide__pagination__page.is-active {
+    background: #f5841e;
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid #f5841e;
+    outline-offset: 2px;
+}

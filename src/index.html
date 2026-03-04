@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWECAU ICT Club - Build. Secure. Design. Deploy.</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Splide Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-deep': '#0e2566',
+                        'blue-main': '#1a3c8f',
+                        'blue-light': '#2d5be3',
+                        'orange': '#f5841e',
+                        'orange-warm': '#ff9a3c',
+                        'surface': '#f4f7ff',
+                        'text': '#0d1b3e',
+                        'text-muted': '#5b6f9a',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-text">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/img/logo.png" alt="ICT Club Logo" class="w-12 h-12 rounded-full">
+                    <span class="font-bold text-blue-main text-lg hidden md:block">MWECAU ICT Club</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex items-center gap-8">
+                    <li><a href="index.html" class="text-text hover:text-blue-light transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-text hover:text-blue-light transition-colors">About</a></li>
+                    <li><a href="projects.html" class="text-text hover:text-blue-light transition-colors">Projects</a></li>
+                    <li><a href="quotes.html" class="text-text hover:text-blue-light transition-colors">Quotes</a></li>
+                    <li><a href="contact.html" class="text-text hover:text-blue-light transition-colors">Contact</a></li>
+                </ul>
+                
+                <!-- CTA Button -->
+                <a href="https://ab3fb7fa.pythonanywhere.com" target="_blank" class="hidden md:flex items-center gap-2 bg-orange hover:bg-orange-warm text-white px-5 py-2.5 rounded-full font-medium transition-all">
+                    Mark Attendance
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <ul class="flex flex-col gap-3">
+                    <li><a href="index.html" class="block text-text hover:text-blue-light transition-colors">Home</a></li>
+                    <li><a href="about.html" class="block text-text hover:text-blue-light transition-colors">About</a></li>
+                    <li><a href="projects.html" class="block text-text hover:text-blue-light transition-colors">Projects</a></li>
+                    <li><a href="quotes.html" class="block text-text hover:text-blue-light transition-colors">Quotes</a></li>
+                    <li><a href="contact.html" class="block text-text hover:text-blue-light transition-colors">Contact</a></li>
+                    <li><a href="https://ab3fb7fa.pythonanywhere.com" target="_blank" class="flex items-center gap-2 bg-orange text-white px-5 py-2.5 rounded-full font-medium w-fit">Mark Attendance</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative bg-blue-deep pt-32 pb-24 overflow-hidden">
+        <!-- Dot Grid Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center">
+                <!-- Logo with Glow -->
+                <div class="mb-8 flex justify-center" data-aos="zoom-in">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-light rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                        <img src="assets/img/logo.png" alt="ICT Club Logo" class="w-32 h-32 rounded-full relative z-10 ring-4 ring-blue-light/50">
+                    </div>
+                </div>
+                
+                <!-- Label -->
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-6" data-aos="fade-up" data-aos-delay="100">
+                    MWECAU ICT CLUB · EST. 2023
+                </div>
+                
+                <!-- Headline -->
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="200">
+                    Build. Secure.<br>Design. Deploy.
+                </h1>
+                
+                <!-- Subtitle -->
+                <p class="text-xl text-white/80 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="300">
+                    A future-focused community turning ideas into products through programming, cybersecurity, design, and innovation.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4 justify-center mb-12" data-aos="fade-up" data-aos-delay="400">
+                    <a href="about.html" class="bg-orange hover:bg-orange-warm text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2">
+                        Learn More
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="projects.html" class="border-2 border-white text-white hover:bg-white hover:text-blue-deep px-8 py-3 rounded-full font-semibold transition-all">
+                        View Projects
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="flex flex-wrap gap-6 justify-center font-mono text-sm" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center gap-2 text-white/80">
+                        <i data-lucide="layers" class="w-5 h-5 text-orange"></i>
+                        <span>6 Departments</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-white/80">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-orange"></i>
+                        <span>Moshi, Tanzania</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-white/80">
+                        <i data-lucide="calendar" class="w-5 h-5 text-orange"></i>
+                        <span>Founded 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Snapshot -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="target" class="w-8 h-8 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3">Mission</h3>
+                    <p class="text-text-muted">Empower students with practical tech skills through hands-on projects and collaborative learning.</p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="eye" class="w-8 h-8 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3">Vision</h3>
+                    <p class="text-text-muted">Become the leading university tech community producing job-ready developers and innovators.</p>
+                </div>
+                
+                <!-- Values -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="heart" class="w-8 h-8 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-3">Values</h3>
+                    <p class="text-text-muted">Collaboration, innovation, continuous learning, and giving back to the community.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <a href="about.html" class="text-orange hover:text-orange-warm font-semibold inline-flex items-center gap-2">
+                    Read Our Full Story
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- YouTube Video -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">SEE WHAT WE DO</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold" data-aos="fade-up" data-aos-delay="100">Watch Our Journey</h2>
+            </div>
+            
+            <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
+                <iframe 
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/Dm-5LJc03rM" 
+                    title="MWECAU ICT Club Video"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Departments -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">OUR DEPARTMENTS</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold" data-aos="fade-up" data-aos-delay="100">Six Paths to Excellence</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Programming -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="code" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Programming</h3>
+                    <p class="text-text-muted">Build real apps, automation scripts, and MVPs with peers.</p>
+                </div>
+                
+                <!-- Cybersecurity -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="shield" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Cybersecurity</h3>
+                    <p class="text-text-muted">Secure networks, practice drills, and harden systems.</p>
+                </div>
+                
+                <!-- Networking -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="network" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Networking</h3>
+                    <p class="text-text-muted">Configure routers, switches, and enterprise infrastructure.</p>
+                </div>
+                
+                <!-- Maintenance -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="wrench" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Maintenance</h3>
+                    <p class="text-text-muted">Hardware repair, troubleshooting, and system optimization.</p>
+                </div>
+                
+                <!-- Graphics Design -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="palette" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">Graphics Design</h3>
+                    <p class="text-text-muted">Create stunning visuals, UI/UX, and brand identities.</p>
+                </div>
+                
+                <!-- AI & ML -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-all group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-blue-light/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-light/20 transition-colors">
+                        <i data-lucide="brain" class="w-7 h-7 text-blue-light"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-2">AI & ML</h3>
+                    <p class="text-text-muted">Machine learning models, data science, and automation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Projects -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">WHAT WE BUILD</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up" data-aos-delay="100">Featured Projects</h2>
+                <p class="text-text-muted text-lg" data-aos="fade-up" data-aos-delay="200">Real projects from our GitHub organization</p>
+            </div>
+            
+            <!-- Projects will be loaded here via JS -->
+            <div id="featured-projects" class="grid md:grid-cols-3 gap-6">
+                <!-- Loading State -->
+                <div class="col-span-3 text-center py-12">
+                    <div class="inline-block w-8 h-8 border-4 border-orange border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-text-muted mt-4">Loading projects...</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="projects.html" class="bg-orange hover:bg-orange-warm text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2">
+                    View All Projects
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quotes Teaser -->
+    <section class="py-24 bg-blue-deep relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">COMMUNITY VOICES</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white" data-aos="fade-up" data-aos-delay="100">Words From Our Members</h2>
+            </div>
+            
+            <!-- Quotes Carousel -->
+            <div id="quotes-carousel" class="splide" data-aos="fade-up" data-aos-delay="200">
+                <div class="splide__track">
+                    <ul class="splide__list" id="quotes-list">
+                        <!-- Quotes will be loaded here via JS -->
+                        <li class="splide__slide">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center max-w-3xl mx-auto">
+                                <div class="text-6xl text-orange mb-4">"</div>
+                                <p class="text-white text-xl mb-6 italic">Loading quotes...</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+                <a href="quotes.html" class="bg-orange hover:bg-orange-warm text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2">
+                    See All Quotes
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Attendance Banner -->
+    <section class="py-16 bg-orange">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="font-mono text-sm text-white/80 uppercase tracking-wider mb-3" data-aos="fade-up">JOIN US EVERY WEEK</div>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+                Sessions Every Friday · 13:30 – 16:00
+            </h2>
+            <a href="https://ab3fb7fa.pythonanywhere.com" target="_blank" class="bg-white text-orange hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2" data-aos="fade-up" data-aos-delay="200">
+                Mark Your Attendance
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Partners -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">OUR PARTNERS</div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold" data-aos="fade-up" data-aos-delay="100">Supported By</h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/img/mwecau.png" alt="MWECAU" class="h-20 grayscale hover:grayscale-0 transition-all">
+                <img src="assets/img/UGA.png" alt="UGA" class="h-20 grayscale hover:grayscale-0 transition-all">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-blue-deep text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Logo & Tagline -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/img/logo.png" alt="ICT Club Logo" class="w-12 h-12 rounded-full">
+                        <span class="font-bold text-lg">MWECAU ICT Club</span>
+                    </div>
+                    <p class="text-white/70 italic">Inspire · Innovate · Integrate</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-white/70">
+                        <li><a href="index.html" class="hover:text-orange transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-orange transition-colors">About Us</a></li>
+                        <li><a href="projects.html" class="hover:text-orange transition-colors">Projects</a></li>
+                        <li><a href="quotes.html" class="hover:text-orange transition-colors">Quotes</a></li>
+                        <li><a href="contact.html" class="hover:text-orange transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-bold mb-4">Get In Touch</h3>
+                    <ul class="space-y-3 text-white/70">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="mail" class="w-5 h-5 mt-0.5 text-orange"></i>
+                            <a href="mailto:mwecauictclub@gmail.com" class="hover:text-orange transition-colors">mwecauictclub@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="github" class="w-5 h-5 mt-0.5 text-orange"></i>
+                            <a href="https://github.com/mwecauictclub" target="_blank" class="hover:text-orange transition-colors">github.com/mwecauictclub</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center text-white/60">
+                <p>&copy; 2025 MWECAU ICT Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Splide -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/quotes.js"></script>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
