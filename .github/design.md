@@ -290,21 +290,21 @@ Phase 7 — Polish
 
 ---
 
-### ✅ Confirmed Details
+### [ x ] Confirmed Details
 
 | Item | Value | Status |
 |------|-------|--------|
-| GitHub org | `mwecauictclub` | ✅ |
-| Your GitHub | `cleven12` | ✅ |
-| Guardian GitHub | `carmel26` | ✅ |
-| Email | `mwecauictclub@gmail.com` | ✅ |
-| YouTube | `watch?v=Dm-5LJc03rM` | ✅ |
-| Attendance URL | `ab3fb7fa.pythonanywhere.com` | ✅ |
-| Colors | Blue `#1a3c8f` + Orange `#f5841e` | ✅ |
-| Logo | `logo.jpg` uploaded | ✅ |
-| WhatsApp link | ⏳ You provide | ❌ |
-| Other 2 PM usernames | ⏳ You provide | ❌ |
-| Leaders list | ⏳ You provide | ❌ |
+| GitHub org | `mwecauictclub` | [ x ] |
+| Your GitHub | `cleven12` | [ x ] |
+| Guardian GitHub | `carmel26` | [ x ] |
+| Email | `mwecauictclub@gmail.com` | [ x ] |
+| YouTube | `watch?v=Dm-5LJc03rM` | [ x ] |
+| Attendance URL | `ab3fb7fa.pythonanywhere.com` | [ x ] |
+| Colors | Blue `#1a3c8f` + Orange `#f5841e` | [ x ] |
+| Logo | `logo.jpg` uploaded | [ x ] |
+| WhatsApp link | ⏳ You provide | [ - ] |
+| Other 2 PM usernames | ⏳ You provide | [ - ] |
+| Leaders list | ⏳ You provide | [ - ] |
 
 ---
 

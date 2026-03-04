@@ -10,22 +10,22 @@ We pledge to act in ways that contribute to an open, welcoming, diverse, and hea
 
 ### Expected Behavior
 
-✅ **Be Respectful**: Treat everyone with respect and kindness  
-✅ **Be Collaborative**: Work together and help each other learn  
-✅ **Be Professional**: Use welcoming and inclusive language  
-✅ **Be Constructive**: Give and receive feedback gracefully  
-✅ **Be Patient**: Remember that everyone is learning  
-✅ **Give Credit**: Acknowledge others' contributions  
+[ x ] **Be Respectful**: Treat everyone with respect and kindness  
+[ x ] **Be Collaborative**: Work together and help each other learn  
+[ x ] **Be Professional**: Use welcoming and inclusive language  
+[ x ] **Be Constructive**: Give and receive feedback gracefully  
+[ x ] **Be Patient**: Remember that everyone is learning  
+[ x ] **Give Credit**: Acknowledge others' contributions  
 
 ### Unacceptable Behavior
 
-❌ Harassment, intimidation, or discrimination of any kind  
-❌ Offensive, insulting, or derogatory comments  
-❌ Personal or political attacks  
-❌ Publishing others' private information without permission  
-❌ Trolling, spam, or disruptive behavior  
-❌ Plagiarism or claiming others' work as your own  
-❌ Any conduct that could reasonably be considered inappropriate  
+[ - ] Harassment, intimidation, or discrimination of any kind  
+[ - ] Offensive, insulting, or derogatory comments  
+[ - ] Personal or political attacks  
+[ - ] Publishing others' private information without permission  
+[ - ] Trolling, spam, or disruptive behavior  
+[ - ] Plagiarism or claiming others' work as your own  
+[ - ] Any conduct that could reasonably be considered inappropriate  
 
 ## Responsibilities
 
