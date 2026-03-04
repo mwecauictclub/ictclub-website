@@ -7,7 +7,7 @@ const leadershipStructure = {
             name: "Edward Mangu",
             role: "Chairperson",
             year: "2023-Present",
-            github: null // Add if available
+            github: null
         },
         viceChairperson: {
             name: "To Be Announced",
@@ -29,7 +29,7 @@ const leadershipStructure = {
         }
     },
     
-    // Project Managers (Max 3)
+    // Project Managers
     projectManagers: [
         {
             name: "Cleven",
@@ -44,7 +44,7 @@ const leadershipStructure = {
         // Add third PM
     ],
     
-    // Department Leaders (2 per department)
+    // Department Leaders
     departmentLeaders: {
         programming: [
             { name: "Leader 1", year: "2025-2026" },
