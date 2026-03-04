@@ -6,8 +6,7 @@ Official website for the Mwenge Catholic University (MWECAU) ICT Club.
 
 ```
 ictclub-website/
-├── public/          # Public-facing static website
-├── admin/           # Admin panel for club leaders
+├── src/          # Public-facing static website
 ├── assets/          # Shared assets (icons, fonts)
 └── .github/         # GitHub configuration and workflows
 ```

@@ -1,4 +1,4 @@
-// Projects data - Add/edit projects here
+// Projects data
 const clubProjects = [
     {
         id: 1,
@@ -10,8 +10,8 @@ const clubProjects = [
         image: "assets/img/projects/robotics.jpg",
         status: "Active",
         year: "2024-2026",
-        githubUrl: null, // Add GitHub URL if available
-        liveUrl: null // Add live demo URL if available
+        githubUrl: null, 
+        liveUrl: null
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ const clubProjects = [
         status: "Active",
         year: "2024-2026",
         githubUrl: "https://github.com/mwecauictclub/ictclub-website",
-        liveUrl: "https://mwecauictclub.netlify.app" // Update with actual URL
+        liveUrl: "https://mwecauictclub.netlify.app"
     }
 ];
 
