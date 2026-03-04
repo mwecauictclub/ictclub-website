@@ -27,7 +27,7 @@ async function loadGuardian() {
 
 // Load Project Managers
 async function loadProjectManagers() {
-    const managers = ['cleven12']; // Add more usernames here
+    const managers = ['cleven12', 'FaustineEmmanuel']; // Project managers GitHub usernames
     const container = document.getElementById('managers-grid');
     
     try {
