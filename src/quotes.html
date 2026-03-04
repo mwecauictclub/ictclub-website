@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes - MWECAU ICT Club</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/logo.png">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-deep': '#0e2566',
+                        'blue-main': '#1a3c8f',
+                        'blue-light': '#2d5be3',
+                        'orange': '#f5841e',
+                        'orange-warm': '#ff9a3c',
+                        'surface': '#f4f7ff',
+                        'text': '#0d1b3e',
+                        'text-muted': '#5b6f9a',
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-text">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/img/logo.png" alt="ICT Club Logo" class="w-12 h-12 rounded-full">
+                    <span class="font-bold text-blue-main text-lg hidden md:block">MWECAU ICT Club</span>
+                </a>
+                
+                <ul class="hidden md:flex items-center gap-8">
+                    <li><a href="index.html" class="text-text hover:text-blue-light transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-text hover:text-blue-light transition-colors">About</a></li>
+                    <li><a href="projects.html" class="text-text hover:text-blue-light transition-colors">Projects</a></li>
+                    <li><a href="quotes.html" class="text-blue-light font-medium">Quotes</a></li>
+                    <li><a href="contact.html" class="text-text hover:text-blue-light transition-colors">Contact</a></li>
+                </ul>
+                
+                <a href="https://ab3fb7fa.pythonanywhere.com" target="_blank" class="hidden md:flex items-center gap-2 bg-orange hover:bg-orange-warm text-white px-5 py-2.5 rounded-full font-medium transition-all">
+                    Mark Attendance
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <ul class="flex flex-col gap-3">
+                    <li><a href="index.html" class="block text-text hover:text-blue-light transition-colors">Home</a></li>
+                    <li><a href="about.html" class="block text-text hover:text-blue-light transition-colors">About</a></li>
+                    <li><a href="projects.html" class="block text-text hover:text-blue-light transition-colors">Projects</a></li>
+                    <li><a href="quotes.html" class="block text-blue-light font-medium">Quotes</a></li>
+                    <li><a href="contact.html" class="block text-text hover:text-blue-light transition-colors">Contact</a></li>
+                    <li><a href="https://ab3fb7fa.pythonanywhere.com" target="_blank" class="flex items-center gap-2 bg-orange text-white px-5 py-2.5 rounded-full font-medium w-fit">Mark Attendance</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative bg-blue-deep pt-32 pb-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+            <div class="font-mono text-sm text-orange uppercase tracking-wider mb-6" data-aos="fade-up">COMMUNITY VOICES</div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+                Words From Those<br>Who Built This.
+            </h1>
+            <p class="text-xl text-white/80 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Insights, reflections, and wisdom from our members.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Quotes Grid -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div id="quotes-grid" class="masonry-grid">
+                <!-- Loading state -->
+                <div class="text-center py-12">
+                    <div class="inline-block w-8 h-8 border-4 border-orange border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-text-muted mt-4">Loading quotes...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How to Contribute -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="font-mono text-sm text-orange uppercase tracking-wider mb-3" data-aos="fade-up">CONTRIBUTE</div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up" data-aos-delay="100">Add Your Voice</h2>
+                <p class="text-text-muted text-lg" data-aos="fade-up" data-aos-delay="200">Join our community quotes wall in 3 easy steps</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="font-mono text-2xl font-bold text-blue-light">1</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Open QUOTES.md</h3>
+                    <p class="text-text-muted text-sm">Visit our GitHub repository</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="font-mono text-2xl font-bold text-blue-light">2</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Add Your Quote</h3>
+                    <p class="text-text-muted text-sm">Follow the format below</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-light/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="font-mono text-2xl font-bold text-blue-light">3</span>
+                    </div>
+                    <h3 class="font-bold mb-2">Submit PR</h3>
+                    <p class="text-text-muted text-sm">Create a pull request</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-900 rounded-2xl p-6 overflow-x-auto" data-aos="fade-up" data-aos-delay="400">
+                <pre class="text-green-400 font-mono text-sm"><code>---
+quote: "Your inspiring quote here"
+name: Your Full Name
+year: 2025
+role: Your Department or Role
+type: current
+---</code></pre>
+            </div>
+            
+            <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://github.com/mwecauictclub/mwecauictclub/blob/main/QUOTES.md" target="_blank" class="bg-orange hover:bg-orange-warm text-white px-8 py-3 rounded-full font-semibold transition-all inline-flex items-center gap-2">
+                    Edit QUOTES.md on GitHub
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-blue-deep text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/img/logo.png" alt="ICT Club Logo" class="w-12 h-12 rounded-full">
+                        <span class="font-bold text-lg">MWECAU ICT Club</span>
+                    </div>
+                    <p class="text-white/70 italic">Inspire · Innovate · Integrate</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-white/70">
+                        <li><a href="index.html" class="hover:text-orange transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-orange transition-colors">About Us</a></li>
+                        <li><a href="projects.html" class="hover:text-orange transition-colors">Projects</a></li>
+                        <li><a href="quotes.html" class="hover:text-orange transition-colors">Quotes</a></li>
+                        <li><a href="contact.html" class="hover:text-orange transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Get In Touch</h3>
+                    <ul class="space-y-3 text-white/70">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="mail" class="w-5 h-5 mt-0.5 text-orange"></i>
+                            <a href="mailto:mwecauictclub@gmail.com" class="hover:text-orange transition-colors">mwecauictclub@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="github" class="w-5 h-5 mt-0.5 text-orange"></i>
+                            <a href="https://github.com/mwecauictclub" target="_blank" class="hover:text-orange transition-colors">github.com/mwecauictclub</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center text-white/60">
+                <p>&copy; 2025 MWECAU ICT Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/quotes-page.js"></script>
+    
+    <script>
+        lucide.createIcons();
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

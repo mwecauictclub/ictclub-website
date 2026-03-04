@@ -11,6 +11,31 @@ html {
     overflow: hidden;
 }
 
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Masonry layout for quotes */
+.masonry-grid {
+    column-count: 1;
+    column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -24,6 +49,10 @@ html {
     border-radius: 5px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background: #2d5be3;
+}
+
 .splide__pagination__page {
     background: rgba(255, 255, 255, 0.5);
 }
@@ -32,8 +61,26 @@ html {
     background: #f5841e;
 }
 
+/* Map container */
+#map {
+    height: 450px;
+    width: 100%;
+    border-radius: 1rem;
+}
+
 a:focus,
 button:focus {
     outline: 2px solid #f5841e;
     outline-offset: 2px;
+}
+
+/* Animation for loading */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
 }
