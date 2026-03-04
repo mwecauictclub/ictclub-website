@@ -36,12 +36,12 @@ const leadershipStructure = {
             github: "cleven12",
             year: "2024-2026"
         },
-        {
-            name: "Faustine Emanuel",
-            github: "FaustineEmmanuel",
-            year: "2025-2026"
-        }
-        // Add third PM if available
+        // {
+        //         name: "Faustine Emanuel",
+        //         github: "FaustineEmmanuel",
+        //         year: "2025-2026"
+        // }
+        // Add third PM
     ],
     
     // Department Leaders (2 per department)

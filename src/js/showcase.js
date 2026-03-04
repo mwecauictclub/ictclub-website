@@ -38,7 +38,11 @@ function renderProjects(category = 'All') {
                     ${project.techStack.length > 3 ? `<span class="text-xs px-2 py-1 bg-gray-100 text-text-muted rounded-full">+${project.techStack.length - 3}</span>` : ''}
                 </div>
                 <div class="flex items-center justify-between">
-                    <span class="text-xs text-text-muted font-mono">${project.year}</span>
+                    <div class="flex items-center gap-2">
+                        ${project.githubUrl ? '<i data-lucide="github" class="w-4 h-4 text-text-muted"></i>' : ''}
+                        ${project.liveUrl ? '<i data-lucide="external-link" class="w-4 h-4 text-text-muted"></i>' : ''}
+                        <span class="text-xs text-text-muted font-mono">${project.year}</span>
+                    </div>
                     <span class="text-blue-light font-medium text-sm flex items-center gap-1">
                         Learn more
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -92,6 +96,26 @@ function openProjectModal(projectId) {
                         `).join('')}
                     </div>
                 </div>
+                
+                ${project.githubUrl || project.liveUrl ? `
+                <div class="mb-6">
+                    <h3 class="font-bold text-sm uppercase tracking-wider text-text-muted mb-3">Links</h3>
+                    <div class="flex flex-wrap gap-3">
+                        ${project.githubUrl ? `
+                        <a href="${project.githubUrl}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            View on GitHub
+                        </a>
+                        ` : ''}
+                        ${project.liveUrl ? `
+                        <a href="${project.liveUrl}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-light text-white rounded-lg hover:bg-blue-main transition-all">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            Live Demo
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+                ` : ''}
                 
                 <div class="border-t pt-6">
                     <div class="flex items-center justify-between">

@@ -9,7 +9,9 @@ const clubProjects = [
         fullDesc: "A comprehensive robotics initiative where members design, build, and program autonomous robots. Projects include line-following bots, obstacle-avoidance systems, and remote-controlled vehicles. Members learn embedded systems, sensor integration, and real-time programming.",
         image: "assets/img/projects/robotics.jpg",
         status: "Active",
-        year: "2024-2026"
+        year: "2024-2026",
+        githubUrl: null, // Add GitHub URL if available
+        liveUrl: null // Add live demo URL if available
     },
     {
         id: 2,
@@ -20,9 +22,10 @@ const clubProjects = [
         fullDesc: "Smart home automation system focusing on security and convenience. Features include remote monitoring, automated lighting, temperature control, and intrusion detection. Emphasizes cybersecurity best practices for IoT devices and encrypted communications.",
         image: "assets/img/projects/iot.jpg",
         status: "Active",
-        year: "2025-2026"
+        year: "2025-2026",
+        githubUrl: null,
+        liveUrl: null
     },
-    // Add more projects below
     {
         id: 3,
         title: "Club Website",
@@ -32,7 +35,9 @@ const clubProjects = [
         fullDesc: "The official club website featuring dynamic content loading from GitHub, interactive maps, member quotes system, and comprehensive information about club activities. Built with modern web technologies and hosted on Netlify.",
         image: "assets/img/projects/website.jpg",
         status: "Active",
-        year: "2024-2026"
+        year: "2024-2026",
+        githubUrl: "https://github.com/mwecauictclub/ictclub-website",
+        liveUrl: "https://mwecauictclub.netlify.app" // Update with actual URL
     }
 ];
 
