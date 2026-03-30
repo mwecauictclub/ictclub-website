@@ -134,7 +134,7 @@ mwecau-ict-club/
 | 2 | **Hero** | Dark navy · *"The people behind the code."* · subtitle |
 | 3 | **Club Story** | White bg · horizontal timeline strip · 2023 Founded → First Sessions → Grew Departments → Now · each milestone: icon + year + one-liner |
 | 4 | **Guardian** | Surface bg · full-width featured card · GitHub API avatar (`carmel26`) · **Carmel Nkeshimana** · *Instructor & Club Guardian* · MSc Embedded & Mobile Systems · Software Developer 2018–2022 @ ibiafrica · icon links: Website · Twitter · LinkedIn · YouTube |
-| 5 | **Project Managers** | White bg · 3-card row · GitHub avatars from API (`cleven12` + 2 others TBD) · name · "Project Manager" badge |
+| 5 | **Leading Team** | White bg · 3-card row · GitHub avatars from API (`cleven12` + 2 others TBD) · name · "Project Manager" badge |
 | 6 | **Leadership Timeline** | Surface bg · vertical timeline · left line · right cards · ● 2023–? Edward Mangu — *Founder & Chairperson* · ● [Leader 2 — you provide] · ● [Leader 3 — placeholder] · current leader highlighted with orange border |
 | 7 | **GitHub Contributors** | White bg · auto-fetched grid · all contributors across all org repos deduped · each: avatar · username · total contributions · "View GitHub →" link |
 | 8 | **Alumni** | Surface bg · *"They graduated. Their legacy remains."* · placeholder cards with ghost styling · you fill names |
