@@ -1,5 +1,5 @@
 // Quotes functionality
-const QUOTES_URL = 'https://raw.githubusercontent.com/mwecauictclub/mwecauictclub/main/QUOTES.md';
+const QUOTES_URL = 'https://raw.githubusercontent.com/mwecauictclub/mwecauictclub/main/QUOTES.json';
 
 function parseQuotes(content) {
     const quotes = [];

@@ -92,7 +92,7 @@ mwecau-ict-club/
 ├── js/
 │   ├── main.js         ← nav, mobile menu, GSAP animations, shared utils
 │   ├── api.js          ← all GitHub API calls (repos, contributors, users)
-│   ├── quotes.js       ← QUOTES.md fetcher + parser + renderer
+│   ├── quotes.js       ← QUOTES.json fetcher + parser + renderer
 │   └── map.js          ← Leaflet map init for contact page
 │
 └── assets/
@@ -161,7 +161,7 @@ mwecau-ict-club/
 |---|---------|---------|
 | 1 | **Hero** | Dark navy · *"Words from those who built this."* |
 | 2 | **Quote Cards** | White bg · masonry-style grid (CSS columns) · each card: large `"` mark in blue · quote text · name bold · year + role muted · alumni badge (orange) or current (blue) |
-| 3 | **How to Contribute** | Surface bg · 3-step visual: 1. Open QUOTES.md on GitHub → 2. Add your quote block → 3. Save / PR · format shown in styled code block · "Edit QUOTES.md →" orange button |
+| 3 | **How to Contribute** | Surface bg · 3-step visual: 1. Open QUOTES.json on GitHub → 2. Add your quote block → 3. Save / PR · format shown in styled code block · "Edit QUOTES.json →" orange button |
 
 ---
 
@@ -195,31 +195,39 @@ getUser(username)
 
 /* quotes.js */
 getQuotes()
-  → GET raw.githubusercontent.com/mwecauictclub/mwecauictclub/main/QUOTES.md
+  → GET raw.githubusercontent.com/mwecauictclub/mwecauictclub/main/QUOTES.json
   → parse --- blocks → render cards
   → used by: quotes.html (all), index.html (3 random)
 ```
 
 ---
 
-### 📝 QUOTES.md — Format Members Use
+### 📝 QUOTES.json — Format Members Use
 
-```markdown
----
-quote: "Technology is the language of the future."
-name: Edward Mangu
-year: 2023
-role: Founder & Chairperson
-type: alumni
----
-
----
-quote: "Contribute once and you are part of this story forever."
-name: Your Name Here
-year: 2025
-role: Programming Department
-type: current
----
+```json
+[
+  {
+    "quote": "Technology is the language of the future.",
+    "name": "Edward Mangu",
+    "year": 2023,
+    "role": "Founder & Chairperson",
+    "type": "alumni"
+  },
+  {
+    "quote": "Contribute once and you are part of this story forever.",
+    "name": "Your Name Here",
+    "year": 2025,
+    "role": "Programming Department",
+    "type": "current"
+  },
+  {
+    "quote": "You don't need everything to start — you just need what's in your hands.",
+    "name": "MWECAU ICT Club",
+    "year": 2026,
+    "role": "Mwenge Catholic University — Moshi, Tanzania",
+    "type": "current"
+  }
+]
 ```
 
 **`type: alumni`** = orange badge · **`type: current`** = blue badge
